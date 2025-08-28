@@ -1,0 +1,18 @@
+start with an empty stack called undostack
+
+method addtext(text):
+    add the given text
+    put "addtext" with the text into undostack
+
+method removetext(start, end):
+    save the text from start to end
+    remove the text from start to end
+    put "removetext" with the saved text into undostack
+
+method undo():
+    if undostack has something:
+        take out the last action
+        if the last action is "addtext":
+            remove that added text
+        else if the last action is "removetext":
+            put back the removed text

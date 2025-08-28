@@ -1,0 +1,38 @@
+abstract class crop {
+    name = "";
+
+    constructor(name) {
+        this.name = name;
+    }
+
+    abstract method waterrequirement();
+    abstract method harvesttime();
+}
+
+class rice extends crop {
+    method waterrequirement() {
+        return "water needed";
+    }
+
+    method harvesttime() {
+        return "120 days";
+    }
+}
+
+class wheat extends crop {
+    method waterrequirement() {
+        return "medium water needed";
+    }
+
+    method harvesttime() {
+        return "90 days";
+    }
+}
+
+main {
+    create crop1 = new rice("basmati");
+    create crop2 = new wheat("sharbati");
+
+    print crop1.waterrequirement();
+    print crop2.harvesttime();
+}

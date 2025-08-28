@@ -1,0 +1,24 @@
+class doctor {
+    name = "";
+    speciaization = "";
+}
+
+class hospital {
+    attribute departmentmap : map<string, list<doctor>>
+
+    method adddoctor(department, doctor) {
+        if (department not in departmentmap) {
+            departmentmap.put(department, new list<doctor>())
+        }
+        departmentmap.get(department).add(doctor)
+    }
+
+    method displaydoctors() {
+        for each entry in departmentmap {
+            print "department: " + entry.key
+            for each doctor in entry.value {
+                print "doctor: " + doctor.name
+            }
+        }
+    }
+}

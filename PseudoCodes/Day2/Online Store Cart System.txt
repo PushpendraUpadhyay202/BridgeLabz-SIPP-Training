@@ -1,0 +1,20 @@
+class item {
+    name ="";
+    price = 0;
+}
+
+class cart {
+    attribute items : list<item>
+
+    method additem(item) {
+        items.add(item)
+    }
+
+    generic method calculatetotalprice() {
+        total = 0
+        for each item in items {
+            total = total + item.price
+        }
+        return total
+    }
+}

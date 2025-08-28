@@ -1,0 +1,62 @@
+Class UPI :
+    Attributes :
+        STRING upiId
+        DOUBLE amount
+
+    Constructor(id, amount) :
+        SET self.upiId = id
+        SET self.amount = amount
+
+//--------------------------------------------------------------------
+
+Class Card :
+    Attributes :
+        STRING cardNumber
+        STRING expiryDate
+        DOUBLE amount
+
+    Constructor(number, expiry, amount) :
+        SET self.cardNumber = number
+        SET self.expiryDate = expiry
+        SET self.amount = amount
+
+//------------------------------------------------------------------------
+
+Class NetBanking :
+    Attributes :
+        STRING bankName
+        STRING accountNumber
+        DOUBLE amount
+
+    Constructor(bank, account, amount) :
+        SET self.bankName = bank
+        SET self.accountNumber = account
+        SET self.amount = amount
+
+//------------------------------------------------------------------------
+
+// Generic Transaction Class, where T can be UPI, Card, etc.
+Class Transaction<T> :
+    Attributes :
+        INTEGER transactionId
+        T paymentDetails
+
+    Constructor(id, details) :
+        SET self.transactionId = id
+        SET self.paymentDetails = details
+
+    Method processTransaction() :
+        PRINT "Processing Transaction ID: ", self.transactionId
+        PRINT "Payment Details: ", self.paymentDetails
+        PRINT "Transaction Successful."
+
+//------------------------------------------------------------------------
+
+Create upiPayment = new UPI("user@bank", 500.00)
+Create cardPayment = new Card("1234-5678-9000-4321", "12/30", 25000.00)
+
+Create upiTransaction = new Transaction<UPI>(901, upiPayment)
+Create cardTransaction = new Transaction<Card>(902, cardPayment)
+
+CALL upiTransaction.processTransaction()
+CALL cardTransaction.processTransaction()

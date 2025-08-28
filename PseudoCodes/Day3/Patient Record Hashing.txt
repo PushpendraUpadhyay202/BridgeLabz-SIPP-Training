@@ -1,0 +1,63 @@
+Class Patient :
+    Attributes :
+        STRING patientId
+        STRING name
+        STRING illness
+        INTEGER age
+
+    Constructor(id, name, illness, age) :
+        SET self.patientId = id
+        SET self.name = name
+        SET self.illness = illness
+        SET self.age = age
+
+    Method display() :
+        PRINT "ID: ", self.patientId, ", Name: ", self.name, ", Illness: ", self.illness, ", Age: ", self.age
+
+//------------------------------------------------------------------------
+
+Class PatientRecordManager :
+    Attributes :
+        HashMap<STRING, Patient> patientRecords
+
+    Constructor() :
+        SET self.patientRecords = new HashMap()
+
+    Method addPatient(patient) :
+        CALL self.patientRecords.put(patient.patientId, patient)
+        PRINT "Added patient with ID: ", patient.patientId
+
+    Method getPatient(patientId) :
+        RETURN self.patientRecords.get(patientId)
+
+    Method updatePatientIllness(patientId, newIllness) :
+        IF self.patientRecords.containsKey(patientId) THEN
+            Create patientToUpdate = self.patientRecords.get(patientId)
+            SET patientToUpdate.illness = newIllness
+            CALL self.patientRecords.put(patientId, patientToUpdate)
+            PRINT "Updated illness for patient ID: ", patientId
+        ELSE
+            PRINT "Patient ID not found."
+        ENDIF
+
+    Method deletePatient(patientId) :
+        CALL self.patientRecords.remove(patientId)
+        PRINT "Deleted patient with ID: ", patientId
+
+//------------------------------------------------------------------------
+
+Create manager = new PatientRecordManager()
+Create patientA = new Patient("P101", "Arihant Jain", "Fever", 21)
+Create patientB = new Patient("P102", "Suryansh", "Cold", 22)
+
+CALL manager.addPatient(patientA)
+CALL manager.addPatient(patientB)
+
+Create retrievedPatient = manager.getPatient("P101")
+CALL retrievedPatient.display()
+
+CALL manager.updatePatientIllness("P101", "Recovered")
+Create updatedPatient = manager.getPatient("P101")
+CALL updatedPatient.display()
+
+CALL manager.deletePatient("P102")

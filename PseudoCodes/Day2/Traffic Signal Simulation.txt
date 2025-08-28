@@ -1,0 +1,21 @@
+class trafficsignal {
+    string currentlight;
+
+    trafficsignal(string light) {
+        currentlight = light;
+    }
+
+    void switchlight() {
+        if (currentlight == "red") {
+            currentlight = "green";
+        } else if (currentlight == "green") {
+            currentlight = "yellow";
+        } else if (currentlight == "yellow") {
+            currentlight = "red";
+        }
+    }
+
+    void display() {
+        print("current signal: " + currentlight);
+    }
+}

@@ -1,0 +1,28 @@
+class employee {
+    attribute name
+    attribute department
+
+    constructor(name, department) {
+        this.name = name
+        this.department = department
+    }
+}
+
+initialize employeelist
+
+method addemployee(name, department) {
+    create new employee
+    add to employeelist
+}
+
+method filterbydepartment(targetdepartment) {
+    initialize filteredlist as empty list
+
+    for each employee in employeelist {
+        if employee.department == targetdepartment {
+            add employee to filteredlist
+        }
+    }
+
+    return filteredlist
+}

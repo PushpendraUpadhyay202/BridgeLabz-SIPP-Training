@@ -1,0 +1,31 @@
+class customer {  
+    attribute name : string  
+    attribute address : string  
+}  
+
+class restaurant {  
+    attribute name : string  
+    attribute location : string  
+}  
+
+class deliveryboy {  
+    attribute name : string  
+    attribute phone : string  
+}  
+
+class order {  
+    attribute customer : customer  
+    attribute restaurant : restaurant  
+    attribute deliveryboy : deliveryboy  
+
+    constructor(customer, restaurant, deliveryboy) {  
+        this.customer = customer  
+        this.restaurant = restaurant  
+        this.deliveryboy = deliveryboy  
+    }  
+
+    method displayorder() {  
+        print "order from " + customer.name + " at " + restaurant.name  
+        print "delivered by " + deliveryboy.name  
+    }  
+}  

@@ -1,0 +1,31 @@
+Class Book :
+    Attributes :
+        STRING title
+        INTEGER publicationYear
+        DOUBLE rating
+
+    Constructor(title, year, rating) :
+        SET self.title = title
+        SET self.publicationYear = year
+        SET self.rating = rating
+
+    Method display() :
+        PRINT "Title: ", self.title, ", Year: ", self.publicationYear, ", Rating: ", self.rating
+
+//------------------------------------------------------------------------
+
+Create List<Book> library = [
+    new Book("Java", 2014, 4.4),
+    new Book("AI", 2020, 4.8),
+    new Book("Surrounded by Idiots", 2018, 4.6)    
+]
+
+Create List<Book> filteredBooks = library.stream()
+    .filter(book -> book.publicationYear > 2015)
+    .filter(book -> book.rating > 4.5)
+    .collectToList()
+
+PRINT "Books published after 2015 with rating > 4.5:"
+FOR EACH book IN filteredBooks :
+    CALL book.display()
+ENDFOR

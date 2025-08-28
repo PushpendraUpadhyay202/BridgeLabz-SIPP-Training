@@ -1,0 +1,24 @@
+class quiztimer {
+    int []timeslots;
+
+    constructor(n) {
+        timeslots = new integer[n]
+        for {i = 0 to n-1} {
+            timeslots[i] = 30
+        }
+    }
+
+    method startquiz() {
+        for {i = 0 to timeslots.length-1} {
+            for {t = timeslots[i] downto 1} {
+                if {t == 5} {
+                    print "only 5 seconds left"
+                }
+                if {t == 1} {
+                    print "time up"
+                }
+            }
+        }
+        print "quiz finished"
+    }
+}

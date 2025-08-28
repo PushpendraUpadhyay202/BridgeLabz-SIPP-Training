@@ -1,0 +1,18 @@
+class Member{
+    Attribute name
+    Attribute id
+    Attribute membershipdate
+
+    constructor(name , id , membershipdate){
+        this.name = name
+        this.id = id
+        this.membershipdata = membershipdate
+    }
+
+    method isvalid(todaydate){
+        if todaydate is within one year of membership{
+            return true
+        }
+        return false
+    }
+}

@@ -1,0 +1,36 @@
+class Pet{
+    Attribute name
+    Attribute age
+    
+    constructor(name , age){
+        this.name = name
+        this.age = age
+    }
+}
+
+class Dog inherit Pet{
+    Attribute breed
+
+    constructor(name , age , breed){
+        call super constructor(name, age)
+        this.breed = breed;
+    }
+}
+
+class Cat inherit Pet{
+    Attribute color
+
+    constructor(name , age , color){
+        call super constructor(name , age , color)
+        this.color = color;
+    }
+}
+
+class Bird inherit Pet{
+    Attribute canfly
+
+    constructor(name , age , canfly){
+        call super constructor(name , age , canfly)
+        this.canfly = canfly
+    }
+}

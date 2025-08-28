@@ -1,0 +1,19 @@
+initialize studentscores map
+
+method addscore(name, score) {
+    store name and score in studentscores
+}
+
+method findhighestscorer() {
+    set highestscore = neg infinity
+    set topstudent
+
+    for each (name, score) in studentscores {
+        if score > highestscore {
+            set highestscore = score
+            set topstudent = name
+        }
+    }
+
+    return topstudent
+}
