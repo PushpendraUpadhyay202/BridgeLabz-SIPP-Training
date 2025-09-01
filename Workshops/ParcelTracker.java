@@ -1,4 +1,4 @@
-package Workshops;
+package workshops;
 
 class Node{
     String stage;
